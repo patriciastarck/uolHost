@@ -10,6 +10,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import uol_host_backend.uol_host_backend.model.dtos.PlayerDto;
 
 @Entity(name="players")
 @Table(name="players")
@@ -33,4 +34,13 @@ public class Player {
     private String codename;
 
     private GroupType groupType;
+
+    public Player(PlayerDto dto) {
+        this.name = dto.name();
+        this.email = dto.email();
+        this.phoneNumber = dto.phoneNumber();
+        this.groupType = dto.groupType();
+    }
+
+    
 }
